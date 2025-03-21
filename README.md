@@ -6,7 +6,7 @@ This project provides a developer-friendly solution for interacting with Volvo C
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-org/your-artifactory-project.git
+git clone https://github.com/oleksandrsergyeyev/art_local_token_gen.git
 cd your-artifactory-project
 ```
 
@@ -32,13 +32,13 @@ pip install -r requirements.txt
 py .\token_refresher\generate_init_token_json.py
 ```
 Then:
-- Paste the **Identity Token** (TEMP_TOKEN_1) when prompted
+- Paste the **Identity Token** prompted
 - A new refreshable token will be saved to `token_refresher/init_tokens.json`
 
 ### 6. Enable Background Refresh Automatically
 Run this once in **PowerShell as Administrator**:
 ```powershell
-.	oken_refresher\register_token_refresher_task.ps1
+.\register_token_refresher_task.ps1
 ```
 This adds a scheduled task to refresh your token in the background at login.
 
@@ -58,15 +58,7 @@ All tokens have a TTL (time to live). If your machine was off for an extended pe
 
 ## 💡 EXAMPLE: Using the Artifactory Client
 ```python
-from artifactory_client import ArtifactoryClient
-
-client = ArtifactoryClient("ARTBC-SUM-LTS")
-metadata = client.get_artifact_metadata()
-print(metadata)
-
-artifacts = client.list_artifacts()
-for f in artifacts:
-    print(f["uri"])
+py ara_access.py
 ```
 
 ---
