@@ -2,3 +2,5 @@
 .env
 refresher.log
 token_refresher/init_tokens.json
+.vbf
+*/__pycache__/

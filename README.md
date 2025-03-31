@@ -7,7 +7,7 @@ This project provides a developer-friendly solution for interacting with Volvo C
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/oleksandrsergyeyev/art_local_token_gen.git
-cd your-artifactory-project
+cd art_local_token_gen
 ```
 
 ### 2. Create Virtual Environment
@@ -32,7 +32,7 @@ pip install -r requirements.txt
 py .\token_refresher\generate_init_token_json.py
 ```
 Then:
-- Paste the **Identity Token** prompted
+- Paste the **Identity Token** when prompted
 - A new refreshable token will be saved to `token_refresher/init_tokens.json`
 
 ### 6. Enable Background Refresh Automatically
@@ -57,9 +57,17 @@ All tokens have a TTL (time to live). If your machine was off for an extended pe
 ---
 
 ## 💡 EXAMPLE: Using the Artifactory Client
-```python
-py ara_access.py
+To run a custom query and download a file:
+```bash
+python get_artifact_cli.py \
+  --repo ARTBC-SUM-LTS \
+  --version BSW_VCC_20.0.0 \
+  --type PROD \
+  --path SWLM/xcp_disabled/vbf \
+  --out downloads/
 ```
+
+This will search for the first file that matches the properties and path, and download it to the `downloads/` folder.
 
 ---
 
@@ -70,4 +78,3 @@ py ara_access.py
 
 ## 📄 License
 Volvo Cars AB
-
